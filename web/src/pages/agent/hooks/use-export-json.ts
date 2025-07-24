@@ -57,13 +57,28 @@ export const useHandleExportOrImportJsonFile = () => {
     [hideFileUploadModal, setGraphInfo, t, toast],
   );
 
+  // 原有的导出功能 - 导出画布状态
   const handleExportJson = useCallback(() => {
     downloadJsonFile(buildDslData().graph, `${data.title}.json`);
   }, [buildDslData, data.title]);
 
+  // 新增的导出为模板功能 - 导出完整 DSL
+  const handleExportAsTemplate = useCallback(() => {
+    const fullDsl = buildDslData();
+    const templateData = {
+      id: `template_${Date.now()}`,
+      title: data.title,
+      description: data.description || `Template exported from ${data.title}`,
+      canvas_type: 'chatbot',
+      dsl: fullDsl,
+    };
+    downloadJsonFile(templateData, `${data.title}_template.json`);
+  }, [buildDslData, data.title, data.description]);
+
   return {
     fileUploadVisible,
     handleExportJson,
+    handleExportAsTemplate,
     handleImportJson: showFileUploadModal,
     hideFileUploadModal,
     onFileUploadOk,

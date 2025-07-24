@@ -29,14 +29,15 @@ redis:
   db: 1
   password: 'infini_rag_flow'
   host: 'localhost:6379'
-# postgres:
-#   name: 'rag_flow'
-#   user: 'rag_flow'
-#   password: 'infini_rag_flow'
-#   host: 'postgres'
-#   port: 5432
-#   max_connections: 100
-#   stale_timeout: 30
+# kingbase
+postgres:
+  name: 'dev_db'
+  user: 'dev'
+  password: 'UYFJwcwSH1UBnxPu'
+  host: '125.122.154.170'
+  port: 54321
+  max_connections: 900
+  stale_timeout: 900
 # s3:
 #   access_key: 'access_key'
 #   secret_key: 'secret_key'

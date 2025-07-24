@@ -71,6 +71,7 @@ export const BeginId = 'begin';
 
 export enum Operator {
   Begin = 'Begin',
+  Custom = 'Custom',
   Retrieval = 'Retrieval',
   Generate = 'Generate',
   Answer = 'Answer',
@@ -114,6 +115,7 @@ export const CommonOperatorList = Object.values(Operator).filter(
 );
 
 export const operatorIconMap = {
+  [Operator.Custom]: RocketOutlined,
   [Operator.Retrieval]: RocketOutlined,
   [Operator.Generate]: MergeCellsOutlined,
   [Operator.Answer]: SendOutlined,
@@ -166,6 +168,14 @@ export const operatorMap: Record<
     moreIconColor?: string;
   }
 > = {
+  [Operator.Custom]: {
+    backgroundColor: '#ebd6d6',
+    width: 150,
+    height: 150,
+    fontSize: 20,
+    iconFontSize: 30,
+    color: '#996464',
+  },
   [Operator.Retrieval]: {
     backgroundColor: '#cad6e0',
     color: '#385974',
@@ -293,6 +303,9 @@ export const operatorMap: Record<
 };
 
 export const componentMenuList = [
+  {
+    name: Operator.Custom,
+  },
   {
     name: Operator.Retrieval,
   },

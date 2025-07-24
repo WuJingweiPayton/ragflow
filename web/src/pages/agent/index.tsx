@@ -10,7 +10,14 @@ import {
 import { useSetModalState } from '@/hooks/common-hooks';
 import { useNavigatePage } from '@/hooks/logic-hooks/navigate-hooks';
 import { ReactFlowProvider } from '@xyflow/react';
-import { CodeXml, EllipsisVertical, Forward, Import, Key } from 'lucide-react';
+import {
+  CodeXml,
+  EllipsisVertical,
+  FileText,
+  Forward,
+  Import,
+  Key,
+} from 'lucide-react';
 import { ComponentPropsWithoutRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import AgentCanvas from './canvas';
@@ -47,6 +54,7 @@ export default function Agent() {
   const openDocument = useOpenDocument();
   const {
     handleExportJson,
+    handleExportAsTemplate,
     handleImportJson,
     fileUploadVisible,
     onFileUploadOk,
@@ -104,6 +112,11 @@ export default function Agent() {
               <AgentDropdownMenuItem onClick={handleExportJson}>
                 Export
                 <Forward />
+              </AgentDropdownMenuItem>
+              <DropdownMenuSeparator />
+              <AgentDropdownMenuItem onClick={handleExportAsTemplate}>
+                Export as Template
+                <FileText />
               </AgentDropdownMenuItem>
               <DropdownMenuSeparator />
               <AgentDropdownMenuItem>

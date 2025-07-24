@@ -28,7 +28,15 @@ redis:
   db: 1
   password: '${REDIS_PASSWORD:-infini_rag_flow}'
   host: '${REDIS_HOST:-redis}:6379'
-
+# kingbase
+postgres:
+  name: 'dev_db'
+  user: 'dev'
+  password: 'UYFJwcwSH1UBnxPu'
+  host: '125.122.154.170'
+  port: 54321
+  max_connections: 900
+  stale_timeout: 900
 # postgres:
 #   name: '${POSTGRES_DBNAME:-rag_flow}'
 #   user: '${POSTGRES_USER:-rag_flow}'

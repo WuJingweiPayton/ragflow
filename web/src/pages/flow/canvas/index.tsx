@@ -12,7 +12,7 @@ import {
   ReactFlow,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { Book, FolderInput, FolderOutput } from 'lucide-react';
+import { Book, FileText, FolderInput, FolderOutput } from 'lucide-react';
 import ChatDrawer from '../chat/drawer';
 import FormDrawer from '../flow-drawer';
 import {
@@ -90,6 +90,7 @@ function FlowCanvas({ drawerVisible, hideDrawer }: IProps) {
 
   const {
     handleExportJson,
+    handleExportAsTemplate,
     handleImportJson,
     fileUploadVisible,
     onFileUploadOk,
@@ -188,6 +189,14 @@ function FlowCanvas({ drawerVisible, hideDrawer }: IProps) {
                 <FolderOutput className="!fill-none" />
               </TooltipTrigger>
               <TooltipContent>Export</TooltipContent>
+            </Tooltip>
+          </ControlButton>
+          <ControlButton onClick={handleExportAsTemplate}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <FileText className="!fill-none" />
+              </TooltipTrigger>
+              <TooltipContent>Export as Template</TooltipContent>
             </Tooltip>
           </ControlButton>
           <ControlButton onClick={openDocument}>
