@@ -1,7 +1,7 @@
 {
   "id": 10,
-  "title": "Research report generator",
-  "description": "A report generator that creates a research report from a given title, in the specified target language. It generates queries from the input title, then uses these to create subtitles and sections, compiling everything into a comprehensive report.",
+  "title": "研究报告生成器",
+  "description": "一个根据给定标题生成研究报告的工具，能以指定目标语言输出。它会从输入标题生成查询语句，进而创建小标题和章节，最终将所有内容整合成完整的报告。",
   "canvas_type": "chatbot",
   "dsl": {
     "answer": [],

@@ -56,12 +56,12 @@ export default function AgentTemplates() {
   );
 
   return (
-    <section>
+    <section className="min-h-screen bg-background">
       <PageHeader
         back={navigateToAgentList}
         title={t('flow.createGraph')}
       ></PageHeader>
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 max-h-[94vh] overflow-auto px-8">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 min-h-[calc(100vh-120px)] px-8 pb-8">
         {list?.map((x) => {
           return (
             <TemplateCard

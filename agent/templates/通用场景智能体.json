@@ -1,7 +1,7 @@
 {
   "id": 1,
-  "title": "General-purpose chatbot",
-  "description": "A general-purpose chat bot whose fields involved include healthcare, finance, emotional communication, real-time weather, and information.",
+  "title": "通用场景智能体",
+  "description": "一款通用型聊天机器人，服务领域涵盖医疗保健、金融理财、情感交流、实时天气及信息咨询。",
   "canvas_type": "chatbot",
   "dsl": {
     "answer": [],

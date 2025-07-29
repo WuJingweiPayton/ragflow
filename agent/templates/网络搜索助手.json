@@ -1,7 +1,7 @@
 {
   "id": 0,
-  "title": "WebSearch Assistant",
-  "description": "A chat assistant template that integrates information extracted from a knowledge base and web searches to respond to queries. Let's begin by setting up your knowledge base in 'Retrieval'!",
+  "title": "网络搜索助手",
+  "description": "一个聊天助理模板，该模板集成了从知识库和Web搜索中提取的信息以响应查询。让我们首先在“检索”中设置您的知识库！",
   "canvas_type": "chatbot",
   "dsl": {
     "answer": [],

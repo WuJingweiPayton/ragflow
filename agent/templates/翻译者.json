@@ -1,7 +1,7 @@
 {
   "id": 4,
-  "title": "Interpreter",
-  "description": "A translation agent based on a reflection agentic workflow, inspired by Andrew Ng's project: https://github.com/andrewyng/translation-agent\n\n1. Prompt an LLM to translate a text into the target language.\n2. Have the LLM reflect on the translation and provide constructive suggestions for improvement.\n3. Use these suggestions to improve the translation.",
+  "title": "翻译者",
+  "description": "基于反射代理工作流的翻译代理，灵感来自Andrew Ng的项目：https:github.comandrewyngtranslation-agent 提示LLM将文本翻译成目标语言。让法学硕士对翻译进行反思，并提出建设性的改进意见。使用这些建议来改进翻译。",
   "canvas_type": "chatbot",
   "dsl": {
       "answer": [],

@@ -1,7 +1,7 @@
 {
   "id": 5,
-  "title": "Text To SQL",
-  "description": "An agent that converts user queries into SQL statements. You must prepare three knowledge bases: 1: DDL for your database; 2: Examples of user queries converted to SQL statements; 3: A comprehensive description of your database, including but not limited to tables and records.",
+  "title": "文本到SQL",
+  "description": "将用户查询转换为SQL语句的代理。您必须为数据库准备三个知识基础：1：DDL； 2：转换为SQL语句的用户查询的示例； 3：对数据库的全面描述，包括但不限于表和记录。",
   "canvas_type": "chatbot",
   "dsl": {
     "answer": [],
