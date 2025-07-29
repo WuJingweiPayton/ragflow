@@ -72,11 +72,6 @@ export function HomeHeader() {
           className="w-[100] h-[100] mr-[12]"
           onClick={handleLogoClick}
         />
-        <Button variant="secondary">
-          <Github />
-          21.5k stars
-          <Star />
-        </Button>
       </div>
       <div>
         <Segmented

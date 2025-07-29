@@ -126,8 +126,6 @@ export function Header() {
           onClick={handleLogoClick}
         />
         <div className="flex items-center gap-1.5 text-text-sub-title">
-          <Github className="size-3.5" />
-          <span className=" text-base">21.5k stars</span>
         </div>
       </div>
       <Segmented
@@ -139,7 +137,7 @@ export function Header() {
         <DropdownMenu>
           <DropdownMenuTrigger>
             <div className="flex items-center gap-1">
-              {t(`common.${camelCase(language)}`)}
+              {LanguageMap[language as keyof typeof LanguageMap] || language}
               <ChevronDown className="size-4" />
             </div>
           </DropdownMenuTrigger>
@@ -151,9 +149,7 @@ export function Header() {
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
-        <Button variant={'ghost'} onClick={handleDocHelpCLick}>
-          <CircleHelp />
-        </Button>
+        {/* 帮助按钮隐藏 */}
         <Button variant={'ghost'} onClick={onThemeClick}>
           {theme === 'light' ? <Sun /> : <Moon />}
         </Button>

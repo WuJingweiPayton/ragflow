@@ -3,13 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 const Languages = [
   'English',
-  'Chinese',
-  'Spanish',
-  'French',
-  'German',
-  'Japanese',
-  'Korean',
-  'Vietnamese',
+  '简体中文',
 ];
 
 const options = Languages.map((x) => ({ label: x, value: x }));

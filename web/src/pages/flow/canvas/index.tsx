@@ -34,7 +34,7 @@ import { BeginNode } from './node/begin-node';
 import { CategorizeNode } from './node/categorize-node';
 import { EmailNode } from './node/email-node';
 import { GenerateNode } from './node/generate-node';
-import { InvokeNode } from './node/invoke-node';
+
 import { IterationNode, IterationStartNode } from './node/iteration-node';
 import { KeywordNode } from './node/keyword-node';
 import { LogicNode } from './node/logic-node';
@@ -59,7 +59,7 @@ export const nodeTypes: NodeTypes = {
   messageNode: MessageNode,
   rewriteNode: RewriteNode,
   keywordNode: KeywordNode,
-  invokeNode: InvokeNode,
+
   templateNode: TemplateNode,
   emailNode: EmailNode,
   group: IterationNode,

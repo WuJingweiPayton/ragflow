@@ -1,37 +1,12 @@
 import { useTranslate } from '@/hooks/common-hooks';
 import { Form, Input, Select } from 'antd';
 import { useCallback, useMemo } from 'react';
-import {
-  QWeatherLangOptions,
-  QWeatherTimePeriodOptions,
-  QWeatherTypeOptions,
-  QWeatherUserTypeOptions,
-} from '../../constant';
 import { IOperatorForm } from '../../interface';
 import DynamicInputVariable from '../components/dynamic-input-variable';
 
 const QWeatherForm = ({ onValuesChange, form, node }: IOperatorForm) => {
   const { t } = useTranslate('flow');
-  const qWeatherLangOptions = useMemo(() => {
-    return QWeatherLangOptions.map((x) => ({
-      value: x,
-      label: t(`qWeatherLangOptions.${x}`),
-    }));
-  }, [t]);
-
-  const qWeatherTypeOptions = useMemo(() => {
-    return QWeatherTypeOptions.map((x) => ({
-      value: x,
-      label: t(`qWeatherTypeOptions.${x}`),
-    }));
-  }, [t]);
-
-  const qWeatherUserTypeOptions = useMemo(() => {
-    return QWeatherUserTypeOptions.map((x) => ({
-      value: x,
-      label: t(`qWeatherUserTypeOptions.${x}`),
-    }));
-  }, [t]);
+  // 删除 QWeather 相关选项的 import 和相关使用
 
   const getQWeatherTimePeriodOptions = useCallback(
     (userType: string) => {

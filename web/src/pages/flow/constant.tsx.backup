@@ -1,26 +1,12 @@
 import {
-  GitHubIcon,
   KeywordIcon,
-  QWeatherIcon,
-  WikipediaIcon,
 } from '@/assets/icon/Icon';
-import { ReactComponent as ArXivIcon } from '@/assets/svg/arxiv.svg';
-import { ReactComponent as baiduFanyiIcon } from '@/assets/svg/baidu-fanyi.svg';
-import { ReactComponent as BaiduIcon } from '@/assets/svg/baidu.svg';
 import { ReactComponent as BeginIcon } from '@/assets/svg/begin.svg';
-import { ReactComponent as BingIcon } from '@/assets/svg/bing.svg';
 import { ReactComponent as ComputingNodeIcon } from '@/assets/svg/computing-node.svg';
 import { ReactComponent as ConcentratorIcon } from '@/assets/svg/concentrator.svg';
 import { ReactComponent as DataProductIcon } from '@/assets/svg/data-product.svg';
 import { ReactComponent as DataResourceIcon } from '@/assets/svg/data-resource.svg';
-import { ReactComponent as DeepLIcon } from '@/assets/svg/deepl.svg';
-import { ReactComponent as DuckIcon } from '@/assets/svg/duck.svg';
-import { ReactComponent as EmailIcon } from '@/assets/svg/email.svg';
-import { ReactComponent as ExeSqlIcon } from '@/assets/svg/exesql.svg';
-import { ReactComponent as GoogleScholarIcon } from '@/assets/svg/google-scholar.svg';
-import { ReactComponent as GoogleIcon } from '@/assets/svg/google.svg';
 import { ReactComponent as NoteIcon } from '@/assets/svg/note.svg';
-import { ReactComponent as PubMedIcon } from '@/assets/svg/pubmed.svg';
 import { ReactComponent as SwitchIcon } from '@/assets/svg/switch.svg';
 import { ReactComponent as TemplateIcon } from '@/assets/svg/template.svg';
 import { CodeTemplateStrMap, ProgrammingLanguage } from '@/constants/agent';
@@ -78,7 +64,6 @@ export enum Operator {
   Relevant = 'Relevant',
   RewriteQuestion = 'RewriteQuestion',
   KeywordExtract = 'KeywordExtract',
-  ExeSQL = 'ExeSQL',
   Switch = 'Switch',
   Concentrator = 'Concentrator',
   Note = 'Note',
@@ -105,7 +90,6 @@ export const operatorIconMap = {
   [Operator.Relevant]: BranchesOutlined,
   [Operator.RewriteQuestion]: FormOutlined,
   [Operator.KeywordExtract]: KeywordIcon,
-  [Operator.ExeSQL]: ExeSqlIcon,
   [Operator.Switch]: SwitchIcon,
   [Operator.Concentrator]: ConcentratorIcon,
   [Operator.Note]: NoteIcon,
@@ -191,7 +175,6 @@ export const operatorMap: Record<
     fontSize: 12,
     iconWidth: 16,
   },
-  [Operator.ExeSQL]: { backgroundColor: '#b9efe8' },
   [Operator.Switch]: { backgroundColor: '#dbaff6', color: '#dbaff6' },
   [Operator.Concentrator]: {
     backgroundColor: '#32d2a3',
@@ -259,9 +242,6 @@ export const componentMenuList = [
   },
   {
     name: Operator.Note,
-  },
-  {
-    name: Operator.ExeSQL,
   },
 ];
 
@@ -359,19 +339,6 @@ export const initialKeywordExtractValues = {
 };
 
 
-export const initialExeSqlValues = {
-  ...initialLlmBaseValues,
-  db_type: 'mysql',
-  database: '',
-  username: '',
-  host: '',
-  port: 3306,
-  password: '',
-  loop: 3,
-  top_n: 30,
-  ...initialQueryBaseValues,
-};
-
 export const initialSwitchValues = { conditions: [] };
 
 export const initialConcentratorValues = {};
@@ -384,8 +351,6 @@ export const initialTemplateValues = {
   content: '',
   parameters: [],
 };
-
-
 
 export const initialIterationValues = {
   delimiter: ',',
@@ -462,7 +427,6 @@ export const RestrictedUpstreamMap = {
     Operator.Message,
     Operator.Relevant,
   ],
-  [Operator.ExeSQL]: [Operator.Begin],
   [Operator.Switch]: [Operator.Begin],
   [Operator.Concentrator]: [Operator.Begin],
   [Operator.Note]: [],
@@ -485,7 +449,6 @@ export const NodeMap = {
   [Operator.Relevant]: 'relevantNode',
   [Operator.RewriteQuestion]: 'rewriteNode',
   [Operator.KeywordExtract]: 'keywordNode',
-  [Operator.ExeSQL]: 'ragNode',
   [Operator.Switch]: 'switchNode',
   [Operator.Concentrator]: 'logicNode',
   [Operator.Note]: 'noteNode',
@@ -778,207 +741,8 @@ export const LanguageOptions = [
   },
 ];
 
-export const GoogleLanguageOptions = [
-  {
-    language_code: 'af',
-    language_name: 'Afrikaans',
-  },
-  {
-    language_code: 'ak',
-    language_name: 'Akan',
-  },
-  {
-    language_code: 'sq',
-    language_name: 'Albanian',
-  },
-  {
-    language_code: 'ws',
-    language_name: 'Samoa',
-  },
-  {
-    language_code: 'am',
-    language_name: 'Amharic',
-  },
-  {
-    language_code: 'ar',
-    language_name: 'Arabic',
-  },
-  {
-    language_code: 'hy',
-    language_name: 'Armenian',
-  },
-  {
-    language_code: 'az',
-    language_name: 'Azerbaijani',
-  },
-  {
-    language_code: 'eu',
-    language_name: 'Basque',
-  },
-  {
-    language_code: 'be',
-    language_name: 'Belarusian',
-  },
-  {
-    language_code: 'bem',
-    language_name: 'Bemba',
-  },
-  {
-    language_code: 'bn',
-    language_name: 'Bengali',
-  },
-  {
-    language_code: 'bh',
-    language_name: 'Bihari',
-  },
-  {
-    language_code: 'xx-bork',
-    language_name: 'Bork, bork, bork!',
-  },
-  {
-    language_code: 'bs',
-    language_name: 'Bosnian',
-  },
-  {
-    language_code: 'br',
-    language_name: 'Breton',
-  },
-  {
-    language_code: 'bg',
-    language_name: 'Bulgarian',
-  },
-  {
-    language_code: 'bt',
-    language_name: 'Bhutanese',
-  },
-  {
-    language_code: 'km',
-    language_name: 'Cambodian',
-  },
-  {
-    language_code: 'ca',
-    language_name: 'Catalan',
-  },
-  {
-    language_code: 'chr',
-    language_name: 'Cherokee',
-  },
-  {
-    language_code: 'ny',
-    language_name: 'Chichewa',
-  },
-  {
-    language_code: 'zh-cn',
-    language_name: 'Chinese (Simplified)',
-  },
-  {
-    language_code: 'zh-tw',
-    language_name: 'Chinese (Traditional)',
-  },
-  {
-    language_code: 'co',
-    language_name: 'Corsican',
-  },
-  {
-    language_code: 'hr',
-    language_name: 'Croatian',
-  },
-  {
-    language_code: 'cs',
-    language_name: 'Czech',
-  },
-  {
-    language_code: 'da',
-    language_name: 'Danish',
-  },
-  {
-    language_code: 'nl',
-    language_name: 'Dutch',
-  },
-  {
-    language_code: 'xx-elmer',
-    language_name: 'Elmer Fudd',
-  },
-  {
-    language_code: 'en',
-    language_name: 'English',
-  },
-  {
-    language_code: 'eo',
-    language_name: 'Esperanto',
-  },
-  {
-    language_code: 'et',
-    language_name: 'Estonian',
-  },
-  {
-    language_code: 'ee',
-    language_name: 'Ewe',
-  },
-  {
-    language_code: 'fo',
-    language_name: 'Faroese',
-  },
-  {
-    language_code: 'tl',
-    language_name: 'Filipino',
-  },
-  {
-    language_code: 'fi',
-    language_name: 'Finnish',
-  },
-  {
-    language_code: 'fr',
-    language_name: 'French',
-  },
-  {
-    language_code: 'fy',
-    language_name: 'Frisian',
-  },
-  {
-    language_code: 'gaa',
-    language_name: 'Ga',
-  },
-  {
-    language_code: 'gl',
-    language_name: 'Galician',
-  },
-  {
-    language_code: 'ka',
-    language_name: 'Georgian',
-  },
-  {
-    language_code: 'de',
-    language_name: 'German',
-  },
-  {
-    language_code: 'el',
-    language_name: 'Greek',
-  },
-  {
-    language_code: 'kl',
-    language_name: 'Greenlandic',
-  },
-  {
-    language_code: 'gn',
-    language_name: 'Guarani',
-  },
-  {
-    language_code: 'gu',
-    language_name: 'Gujarati',
-  },
-  {
-    language_code: 'xx-hacker',
-    language_name: 'Hacker',
-  },
-  {
-    language_code: 'ht',
-    language_name: 'Haitian Creole',
-  },
-  {
-    language_code: 'ha',
-    language_name: 'Hausa',
-  },
+
+
   {
     language_code: 'haw',
     language_name: 'Hawaiian',
@@ -2368,13 +2132,261 @@ export const GoogleCountryOptions = [
   },
 ].map((x) => ({ label: x.country_name, value: x.country_code }));
 
+export const BingCountryOptions = [
+  { label: 'Argentina AR', value: 'AR' },
+  { label: 'Australia AU', value: 'AU' },
+  { label: 'Austria AT', value: 'AT' },
+  { label: 'Belgium BE', value: 'BE' },
+  { label: 'Brazil BR', value: 'BR' },
+  { label: 'Canada CA', value: 'CA' },
+  { label: 'Chile CL', value: 'CL' },
+  { label: 'Denmark DK', value: 'DK' },
+  { label: 'Finland FI', value: 'FI' },
+  { label: 'France FR', value: 'FR' },
+  { label: 'Germany DE', value: 'DE' },
+  { label: 'Hong Kong SAR HK', value: 'HK' },
+  { label: 'India IN', value: 'IN' },
+  { label: 'Indonesia ID', value: 'ID' },
+  { label: 'Italy IT', value: 'IT' },
+  { label: 'Japan JP', value: 'JP' },
+  { label: 'Korea KR', value: 'KR' },
+  { label: 'Malaysia MY', value: 'MY' },
+  { label: 'Mexico MX', value: 'MX' },
+  { label: 'Netherlands NL', value: 'NL' },
+  { label: 'New Zealand NZ', value: 'NZ' },
+  { label: 'Norway NO', value: 'NO' },
+  { label: "People's Republic of China CN", value: 'CN' },
+  { label: 'Poland PL', value: 'PL' },
+  { label: 'Portugal PT', value: 'PT' },
+  { label: 'Republic of the Philippines PH', value: 'PH' },
+  { label: 'Russia RU', value: 'RU' },
+  { label: 'Saudi Arabia SA', value: 'SA' },
+  { label: 'South Africa ZA', value: 'ZA' },
+  { label: 'Spain ES', value: 'ES' },
+  { label: 'Sweden SE', value: 'SE' },
+  { label: 'Switzerland CH', value: 'CH' },
+  { label: 'Taiwan TW', value: 'TW' },
+  { label: 'Türkiye TR', value: 'TR' },
+  { label: 'United Kingdom GB', value: 'GB' },
+  { label: 'United States US', value: 'US' },
+];
 
+export const BingLanguageOptions = [
+  { label: 'Arabic ar', value: 'ar' },
+  { label: 'Basque eu', value: 'eu' },
+  { label: 'Bengali bn', value: 'bn' },
+  { label: 'Bulgarian bg', value: 'bg' },
+  { label: 'Catalan ca', value: 'ca' },
+  { label: 'Chinese (Simplified) zh-hans', value: 'ns' },
+  { label: 'Chinese (Traditional) zh-hant', value: 'nt' },
+  { label: 'Croatian hr', value: 'hr' },
+  { label: 'Czech cs', value: 'cs' },
+  { label: 'Danish da', value: 'da' },
+  { label: 'Dutch nl', value: 'nl' },
+  { label: 'English en', value: 'en' },
+  { label: 'English-United Kingdom en-gb', value: 'gb' },
+  { label: 'Estonian et', value: 'et' },
+  { label: 'Finnish fi', value: 'fi' },
+  { label: 'French fr', value: 'fr' },
+  { label: 'Galician gl', value: 'gl' },
+  { label: 'German de', value: 'de' },
+  { label: 'Gujarati gu', value: 'gu' },
+  { label: 'Hebrew he', value: 'he' },
+  { label: 'Hindi hi', value: 'hi' },
+  { label: 'Hungarian hu', value: 'hu' },
+  { label: 'Icelandic is', value: 'is' },
+  { label: 'Italian it', value: 'it' },
+  { label: 'Japanese jp', value: 'jp' },
+  { label: 'Kannada kn', value: 'kn' },
+  { label: 'Korean ko', value: 'ko' },
+  { label: 'Latvian lv', value: 'lv' },
+  { label: 'Lithuanian lt', value: 'lt' },
+  { label: 'Malay ms', value: 'ms' },
+  { label: 'Malayalam ml', value: 'ml' },
+  { label: 'Marathi mr', value: 'mr' },
+  { label: 'Norwegian (Bokmål) nb', value: 'nb' },
+  { label: 'Polish pl', value: 'pl' },
+  { label: 'Portuguese (Brazil) pt-br', value: 'br' },
+  { label: 'Portuguese (Portugal) pt-pt', value: 'pt' },
+  { label: 'Punjabi pa', value: 'pa' },
+  { label: 'Romanian ro', value: 'ro' },
+  { label: 'Russian ru', value: 'ru' },
+  { label: 'Serbian (Cyrylic) sr', value: 'sr' },
+  { label: 'Slovak sk', value: 'sk' },
+  { label: 'Slovenian sl', value: 'sl' },
+  { label: 'Spanish es', value: 'es' },
+  { label: 'Swedish sv', value: 'sv' },
+  { label: 'Tamil ta', value: 'ta' },
+  { label: 'Telugu te', value: 'te' },
+  { label: 'Thai th', value: 'th' },
+  { label: 'Turkish tr', value: 'tr' },
+  { label: 'Ukrainian uk', value: 'uk' },
+  { label: 'Vietnamese vi', value: 'vi' },
+];
 
+export const DeepLSourceLangOptions = [
+  { label: 'Arabic [1]', value: 'AR' },
+  { label: 'Bulgarian', value: 'BG' },
+  { label: 'Czech', value: 'CS' },
+  { label: 'Danish', value: 'DA' },
+  { label: 'German', value: 'DE' },
+  { label: 'Greek', value: 'EL' },
+  { label: 'English', value: 'EN' },
+  { label: 'Spanish', value: 'ES' },
+  { label: 'Estonian', value: 'ET' },
+  { label: 'Finnish', value: 'FI' },
+  { label: 'French', value: 'FR' },
+  { label: 'Hungarian', value: 'HU' },
+  { label: 'Indonesian', value: 'ID' },
+  { label: 'Italian', value: 'IT' },
+  { label: 'Japanese', value: 'JA' },
+  { label: 'Korean', value: 'KO' },
+  { label: 'Lithuanian', value: 'LT' },
+  { label: 'Latvian', value: 'LV' },
+  { label: 'Norwegian Bokmål', value: 'NB' },
+  { label: 'Dutch', value: 'NL' },
+  { label: 'Polish', value: 'PL' },
+  { label: 'Portuguese (all Portuguese varieties mixed)', value: 'PT' },
+  { label: 'Romanian', value: 'RO' },
+  { label: 'Russian', value: 'RU' },
+  { label: 'Slovak', value: 'SK' },
+  { label: 'Slovenian', value: 'SL' },
+  { label: 'Swedish', value: 'SV' },
+  { label: 'Turkish', value: 'TR' },
+  { label: 'Ukrainian', value: 'UK' },
+  { label: 'Chinese', value: 'ZH' },
+];
+export const DeepLTargetLangOptions = [
+  { label: 'Arabic [1]', value: 'AR' },
+  { label: 'Bulgarian', value: 'BG' },
+  { label: 'Czech', value: 'CS' },
+  { label: 'Danish', value: 'DA' },
+  { label: 'German', value: 'DE' },
+  { label: 'Greek', value: 'EL' },
+  { label: 'English (British)', value: 'EN-GB' },
+  { label: 'English (American)', value: 'EN-US' },
+  { label: 'Spanish', value: 'ES' },
+  { label: 'Estonian', value: 'ET' },
+  { label: 'Finnish', value: 'FI' },
+  { label: 'French', value: 'FR' },
+  { label: 'Hungarian', value: 'HU' },
+  { label: 'Indonesian', value: 'ID' },
+  { label: 'Italian', value: 'IT' },
+  { label: 'Japanese', value: 'JA' },
+  { label: 'Korean', value: 'KO' },
+  { label: 'Lithuanian', value: 'LT' },
+  { label: 'Latvian', value: 'LV' },
+  { label: 'Norwegian Bokmål', value: 'NB' },
+  { label: 'Dutch', value: 'NL' },
+  { label: 'Polish', value: 'PL' },
+  { label: 'Portuguese (Brazilian)', value: 'PT-BR' },
+  {
+    label:
+      'Portuguese (all Portuguese varieties excluding Brazilian Portuguese)',
+    value: 'PT-PT',
+  },
+  { label: 'Romanian', value: 'RO' },
+  { label: 'Russian', value: 'RU' },
+  { label: 'Slovak', value: 'SK' },
+  { label: 'Slovenian', value: 'SL' },
+  { label: 'Swedish', value: 'SV' },
+  { label: 'Turkish', value: 'TR' },
+  { label: 'Ukrainian', value: 'UK' },
+  { label: 'Chinese (simplified)', value: 'ZH' },
+];
 
+export const BaiduFanyiDomainOptions = [
+  'it',
+  'finance',
+  'machinery',
+  'senimed',
+  'novel',
+  'academic',
+  'aerospace',
+  'wiki',
+  'news',
+  'law',
+  'contract',
+];
 
+export const BaiduFanyiSourceLangOptions = [
+  'auto',
+  'zh',
+  'en',
+  'yue',
+  'wyw',
+  'jp',
+  'kor',
+  'fra',
+  'spa',
+  'th',
+  'ara',
+  'ru',
+  'pt',
+  'de',
+  'it',
+  'el',
+  'nl',
+  'pl',
+  'bul',
+  'est',
+  'dan',
+  'fin',
+  'cs',
+  'rom',
+  'slo',
+  'swe',
+  'hu',
+  'cht',
+  'vie',
+];
 
+export const QWeatherLangOptions = [
+  'zh',
+  'zh-hant',
+  'en',
+  'de',
+  'es',
+  'fr',
+  'it',
+  'ja',
+  'ko',
+  'ru',
+  'hi',
+  'th',
+  'ar',
+  'pt',
+  'bn',
+  'ms',
+  'nl',
+  'el',
+  'la',
+  'sv',
+  'id',
+  'pl',
+  'tr',
+  'cs',
+  'et',
+  'vi',
+  'fil',
+  'fi',
+  'he',
+  'is',
+  'nb',
+];
 
+export const QWeatherTypeOptions = ['weather', 'indices', 'airquality'];
 
+export const QWeatherUserTypeOptions = ['free', 'paid'];
+
+export const QWeatherTimePeriodOptions = [
+  'now',
+  '3d',
+  '7d',
+  '10d',
+  '15d',
+  '30d',
+];
 
 export const ExeSQLOptions = ['mysql', 'postgresql', 'mariadb', 'mssql'].map(
   (x) => ({
