@@ -3,7 +3,6 @@ import { Form, Input, Select } from 'antd';
 import { useMemo } from 'react';
 import { IOperatorForm } from '../../interface';
 import {
-  BaiduFanyiDomainOptions,
   BaiduFanyiSourceLangOptions,
 } from '../../options';
 import DynamicInputVariable from '../components/dynamic-input-variable';
@@ -14,13 +13,6 @@ const BaiduFanyiForm = ({ onValuesChange, form, node }: IOperatorForm) => {
     return ['translate', 'fieldtranslate'].map((x) => ({
       value: x,
       label: t(`baiduSecretKeyOptions.${x}`),
-    }));
-  }, [t]);
-
-  const baiduFanyiOptions = useMemo(() => {
-    return BaiduFanyiDomainOptions.map((x) => ({
-      value: x,
-      label: t(`baiduDomainOptions.${x}`),
     }));
   }, [t]);
 
@@ -48,15 +40,6 @@ const BaiduFanyiForm = ({ onValuesChange, form, node }: IOperatorForm) => {
       </Form.Item>
       <Form.Item label={t('transType')} name={'trans_type'}>
         <Select options={options}></Select>
-      </Form.Item>
-      <Form.Item noStyle dependencies={['model_type']}>
-        {({ getFieldValue }) =>
-          getFieldValue('trans_type') === 'fieldtranslate' && (
-            <Form.Item label={t('domain')} name={'domain'}>
-              <Select options={baiduFanyiOptions}></Select>
-            </Form.Item>
-          )
-        }
       </Form.Item>
       <Form.Item label={t('sourceLang')} name={'source_lang'}>
         <Select options={baiduFanyiSourceLangOptions}></Select>

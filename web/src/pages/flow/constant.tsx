@@ -78,24 +78,11 @@ export enum Operator {
   Relevant = 'Relevant',
   RewriteQuestion = 'RewriteQuestion',
   KeywordExtract = 'KeywordExtract',
-  Baidu = 'Baidu',
-  DuckDuckGo = 'DuckDuckGo',
-  Wikipedia = 'Wikipedia',
-  PubMed = 'PubMed',
-  ArXiv = 'ArXiv',
-  Google = 'Google',
-  Bing = 'Bing',
-  GoogleScholar = 'GoogleScholar',
-  DeepL = 'DeepL',
-  GitHub = 'GitHub',
-  BaiduFanyi = 'BaiduFanyi',
-  QWeather = 'QWeather',
   ExeSQL = 'ExeSQL',
   Switch = 'Switch',
   Concentrator = 'Concentrator',
   Note = 'Note',
   Template = 'Template',
-  Email = 'Email',
   Iteration = 'Iteration',
   IterationStart = 'IterationItem',
   Code = 'Code',
@@ -118,24 +105,11 @@ export const operatorIconMap = {
   [Operator.Relevant]: BranchesOutlined,
   [Operator.RewriteQuestion]: FormOutlined,
   [Operator.KeywordExtract]: KeywordIcon,
-  [Operator.DuckDuckGo]: DuckIcon,
-  [Operator.Baidu]: BaiduIcon,
-  [Operator.Wikipedia]: WikipediaIcon,
-  [Operator.PubMed]: PubMedIcon,
-  [Operator.ArXiv]: ArXivIcon,
-  [Operator.Google]: GoogleIcon,
-  [Operator.Bing]: BingIcon,
-  [Operator.GoogleScholar]: GoogleScholarIcon,
-  [Operator.DeepL]: DeepLIcon,
-  [Operator.GitHub]: GitHubIcon,
-  [Operator.BaiduFanyi]: baiduFanyiIcon,
-  [Operator.QWeather]: QWeatherIcon,
   [Operator.ExeSQL]: ExeSqlIcon,
   [Operator.Switch]: SwitchIcon,
   [Operator.Concentrator]: ConcentratorIcon,
   [Operator.Note]: NoteIcon,
   [Operator.Template]: TemplateIcon,
-  [Operator.Email]: EmailIcon,
   [Operator.Iteration]: IterationCcw,
   [Operator.IterationStart]: CirclePower,
   [Operator.Code]: CodeXml,
@@ -217,50 +191,6 @@ export const operatorMap: Record<
     fontSize: 12,
     iconWidth: 16,
   },
-  [Operator.DuckDuckGo]: {
-    backgroundColor: '#e7e389',
-    color: '#aea00c',
-  },
-  [Operator.Baidu]: {
-    backgroundColor: '#d9e0f8',
-  },
-  [Operator.Wikipedia]: {
-    backgroundColor: '#dee0e2',
-  },
-  [Operator.PubMed]: {
-    backgroundColor: '#a2ccf0',
-  },
-  [Operator.ArXiv]: {
-    width: 70,
-    height: 70,
-    fontSize: 12,
-    iconWidth: 16,
-    iconFontSize: 16,
-    moreIconColor: 'white',
-    backgroundColor: '#b31b1b',
-    color: 'white',
-  },
-  [Operator.Google]: {
-    backgroundColor: 'pink',
-  },
-  [Operator.Bing]: {
-    backgroundColor: '#c0dcc4',
-  },
-  [Operator.GoogleScholar]: {
-    backgroundColor: '#b4e4f6',
-  },
-  [Operator.DeepL]: {
-    backgroundColor: '#f5e8e6',
-  },
-  [Operator.GitHub]: {
-    backgroundColor: 'purple',
-    color: 'purple',
-  },
-  [Operator.BaiduFanyi]: { backgroundColor: '#e5f2d3' },
-  [Operator.QWeather]: {
-    backgroundColor: '#a4bbf3',
-    color: '#a4bbf3',
-  },
   [Operator.ExeSQL]: { backgroundColor: '#b9efe8' },
   [Operator.Switch]: { backgroundColor: '#dbaff6', color: '#dbaff6' },
   [Operator.Concentrator]: {
@@ -275,7 +205,6 @@ export const operatorMap: Record<
   [Operator.Template]: {
     backgroundColor: '#dee0e2',
   },
-  [Operator.Email]: { backgroundColor: '#e6f7ff' },
   [Operator.Iteration]: { backgroundColor: '#e6f7ff' },
   [Operator.IterationStart]: { backgroundColor: '#e6f7ff' },
   [Operator.Code]: { backgroundColor: '#4c5458' },
@@ -332,46 +261,7 @@ export const componentMenuList = [
     name: Operator.Note,
   },
   {
-    name: Operator.DuckDuckGo,
-  },
-  {
-    name: Operator.Baidu,
-  },
-  {
-    name: Operator.Wikipedia,
-  },
-  {
-    name: Operator.PubMed,
-  },
-  {
-    name: Operator.ArXiv,
-  },
-  {
-    name: Operator.Google,
-  },
-  {
-    name: Operator.Bing,
-  },
-  {
-    name: Operator.GoogleScholar,
-  },
-  {
-    name: Operator.DeepL,
-  },
-  {
-    name: Operator.GitHub,
-  },
-  {
-    name: Operator.BaiduFanyi,
-  },
-  {
-    name: Operator.QWeather,
-  },
-  {
     name: Operator.ExeSQL,
-  },
-  {
-    name: Operator.Email,
   },
 ];
 
@@ -467,84 +357,7 @@ export const initialKeywordExtractValues = {
   top_n: 3,
   ...initialQueryBaseValues,
 };
-export const initialDuckValues = {
-  top_n: 10,
-  channel: Channel.Text,
-  ...initialQueryBaseValues,
-};
 
-export const initialBaiduValues = {
-  top_n: 10,
-  ...initialQueryBaseValues,
-};
-
-export const initialWikipediaValues = {
-  top_n: 10,
-  language: 'en',
-  ...initialQueryBaseValues,
-};
-
-export const initialPubMedValues = {
-  top_n: 10,
-  email: '',
-  ...initialQueryBaseValues,
-};
-
-export const initialArXivValues = {
-  top_n: 10,
-  sort_by: 'relevance',
-  ...initialQueryBaseValues,
-};
-
-export const initialGoogleValues = {
-  top_n: 10,
-  api_key: 'YOUR_API_KEY (obtained from https://serpapi.com/manage-api-key)',
-  country: 'cn',
-  language: 'en',
-  ...initialQueryBaseValues,
-};
-
-export const initialBingValues = {
-  top_n: 10,
-  channel: 'Webpages',
-  api_key:
-    'YOUR_API_KEY (obtained from https://www.microsoft.com/en-us/bing/apis/bing-web-search-api)',
-  country: 'CH',
-  language: 'en',
-  ...initialQueryBaseValues,
-};
-
-export const initialGoogleScholarValues = {
-  top_n: 5,
-  sort_by: 'relevance',
-  patents: true,
-  ...initialQueryBaseValues,
-};
-
-export const initialDeepLValues = {
-  top_n: 5,
-  auth_key: 'relevance',
-};
-
-export const initialGithubValues = {
-  top_n: 5,
-  ...initialQueryBaseValues,
-};
-
-export const initialBaiduFanyiValues = {
-  appid: 'xxx',
-  secret_key: 'xxx',
-  trans_type: 'translate',
-  ...initialQueryBaseValues,
-};
-
-export const initialQWeatherValues = {
-  web_apikey: 'xxx',
-  type: 'weather',
-  user_type: 'free',
-  time_period: 'now',
-  ...initialQueryBaseValues,
-};
 
 export const initialExeSqlValues = {
   ...initialLlmBaseValues,
@@ -572,17 +385,7 @@ export const initialTemplateValues = {
   parameters: [],
 };
 
-export const initialEmailValues = {
-  smtp_server: '',
-  smtp_port: 587,
-  email: '',
-  password: '',
-  sender_name: '',
-  to_email: '',
-  cc_email: '',
-  subject: '',
-  content: '',
-};
+
 
 export const initialIterationValues = {
   delimiter: ',',
@@ -659,24 +462,11 @@ export const RestrictedUpstreamMap = {
     Operator.Message,
     Operator.Relevant,
   ],
-  [Operator.Baidu]: [Operator.Begin, Operator.Retrieval],
-  [Operator.DuckDuckGo]: [Operator.Begin, Operator.Retrieval],
-  [Operator.Wikipedia]: [Operator.Begin, Operator.Retrieval],
-  [Operator.PubMed]: [Operator.Begin, Operator.Retrieval],
-  [Operator.ArXiv]: [Operator.Begin, Operator.Retrieval],
-  [Operator.Google]: [Operator.Begin, Operator.Retrieval],
-  [Operator.Bing]: [Operator.Begin, Operator.Retrieval],
-  [Operator.GoogleScholar]: [Operator.Begin, Operator.Retrieval],
-  [Operator.DeepL]: [Operator.Begin, Operator.Retrieval],
-  [Operator.GitHub]: [Operator.Begin, Operator.Retrieval],
-  [Operator.BaiduFanyi]: [Operator.Begin, Operator.Retrieval],
-  [Operator.QWeather]: [Operator.Begin, Operator.Retrieval],
   [Operator.ExeSQL]: [Operator.Begin],
   [Operator.Switch]: [Operator.Begin],
   [Operator.Concentrator]: [Operator.Begin],
   [Operator.Note]: [],
   [Operator.Template]: [Operator.Begin, Operator.Relevant],
-  [Operator.Email]: [Operator.Begin],
   [Operator.Iteration]: [Operator.Begin],
   [Operator.IterationStart]: [Operator.Begin],
   [Operator.Code]: [Operator.Begin],
@@ -695,24 +485,11 @@ export const NodeMap = {
   [Operator.Relevant]: 'relevantNode',
   [Operator.RewriteQuestion]: 'rewriteNode',
   [Operator.KeywordExtract]: 'keywordNode',
-  [Operator.DuckDuckGo]: 'ragNode',
-  [Operator.Baidu]: 'ragNode',
-  [Operator.Wikipedia]: 'ragNode',
-  [Operator.PubMed]: 'ragNode',
-  [Operator.ArXiv]: 'ragNode',
-  [Operator.Google]: 'ragNode',
-  [Operator.Bing]: 'ragNode',
-  [Operator.GoogleScholar]: 'ragNode',
-  [Operator.DeepL]: 'ragNode',
-  [Operator.GitHub]: 'ragNode',
-  [Operator.BaiduFanyi]: 'ragNode',
-  [Operator.QWeather]: 'ragNode',
   [Operator.ExeSQL]: 'ragNode',
   [Operator.Switch]: 'switchNode',
   [Operator.Concentrator]: 'logicNode',
   [Operator.Note]: 'noteNode',
   [Operator.Template]: 'templateNode',
-  [Operator.Email]: 'emailNode',
   [Operator.Iteration]: 'group',
   [Operator.IterationStart]: 'iterationStartNode',
   [Operator.Code]: 'ragNode',
@@ -2591,261 +2368,13 @@ export const GoogleCountryOptions = [
   },
 ].map((x) => ({ label: x.country_name, value: x.country_code }));
 
-export const BingCountryOptions = [
-  { label: 'Argentina AR', value: 'AR' },
-  { label: 'Australia AU', value: 'AU' },
-  { label: 'Austria AT', value: 'AT' },
-  { label: 'Belgium BE', value: 'BE' },
-  { label: 'Brazil BR', value: 'BR' },
-  { label: 'Canada CA', value: 'CA' },
-  { label: 'Chile CL', value: 'CL' },
-  { label: 'Denmark DK', value: 'DK' },
-  { label: 'Finland FI', value: 'FI' },
-  { label: 'France FR', value: 'FR' },
-  { label: 'Germany DE', value: 'DE' },
-  { label: 'Hong Kong SAR HK', value: 'HK' },
-  { label: 'India IN', value: 'IN' },
-  { label: 'Indonesia ID', value: 'ID' },
-  { label: 'Italy IT', value: 'IT' },
-  { label: 'Japan JP', value: 'JP' },
-  { label: 'Korea KR', value: 'KR' },
-  { label: 'Malaysia MY', value: 'MY' },
-  { label: 'Mexico MX', value: 'MX' },
-  { label: 'Netherlands NL', value: 'NL' },
-  { label: 'New Zealand NZ', value: 'NZ' },
-  { label: 'Norway NO', value: 'NO' },
-  { label: "People's Republic of China CN", value: 'CN' },
-  { label: 'Poland PL', value: 'PL' },
-  { label: 'Portugal PT', value: 'PT' },
-  { label: 'Republic of the Philippines PH', value: 'PH' },
-  { label: 'Russia RU', value: 'RU' },
-  { label: 'Saudi Arabia SA', value: 'SA' },
-  { label: 'South Africa ZA', value: 'ZA' },
-  { label: 'Spain ES', value: 'ES' },
-  { label: 'Sweden SE', value: 'SE' },
-  { label: 'Switzerland CH', value: 'CH' },
-  { label: 'Taiwan TW', value: 'TW' },
-  { label: 'Türkiye TR', value: 'TR' },
-  { label: 'United Kingdom GB', value: 'GB' },
-  { label: 'United States US', value: 'US' },
-];
 
-export const BingLanguageOptions = [
-  { label: 'Arabic ar', value: 'ar' },
-  { label: 'Basque eu', value: 'eu' },
-  { label: 'Bengali bn', value: 'bn' },
-  { label: 'Bulgarian bg', value: 'bg' },
-  { label: 'Catalan ca', value: 'ca' },
-  { label: 'Chinese (Simplified) zh-hans', value: 'ns' },
-  { label: 'Chinese (Traditional) zh-hant', value: 'nt' },
-  { label: 'Croatian hr', value: 'hr' },
-  { label: 'Czech cs', value: 'cs' },
-  { label: 'Danish da', value: 'da' },
-  { label: 'Dutch nl', value: 'nl' },
-  { label: 'English en', value: 'en' },
-  { label: 'English-United Kingdom en-gb', value: 'gb' },
-  { label: 'Estonian et', value: 'et' },
-  { label: 'Finnish fi', value: 'fi' },
-  { label: 'French fr', value: 'fr' },
-  { label: 'Galician gl', value: 'gl' },
-  { label: 'German de', value: 'de' },
-  { label: 'Gujarati gu', value: 'gu' },
-  { label: 'Hebrew he', value: 'he' },
-  { label: 'Hindi hi', value: 'hi' },
-  { label: 'Hungarian hu', value: 'hu' },
-  { label: 'Icelandic is', value: 'is' },
-  { label: 'Italian it', value: 'it' },
-  { label: 'Japanese jp', value: 'jp' },
-  { label: 'Kannada kn', value: 'kn' },
-  { label: 'Korean ko', value: 'ko' },
-  { label: 'Latvian lv', value: 'lv' },
-  { label: 'Lithuanian lt', value: 'lt' },
-  { label: 'Malay ms', value: 'ms' },
-  { label: 'Malayalam ml', value: 'ml' },
-  { label: 'Marathi mr', value: 'mr' },
-  { label: 'Norwegian (Bokmål) nb', value: 'nb' },
-  { label: 'Polish pl', value: 'pl' },
-  { label: 'Portuguese (Brazil) pt-br', value: 'br' },
-  { label: 'Portuguese (Portugal) pt-pt', value: 'pt' },
-  { label: 'Punjabi pa', value: 'pa' },
-  { label: 'Romanian ro', value: 'ro' },
-  { label: 'Russian ru', value: 'ru' },
-  { label: 'Serbian (Cyrylic) sr', value: 'sr' },
-  { label: 'Slovak sk', value: 'sk' },
-  { label: 'Slovenian sl', value: 'sl' },
-  { label: 'Spanish es', value: 'es' },
-  { label: 'Swedish sv', value: 'sv' },
-  { label: 'Tamil ta', value: 'ta' },
-  { label: 'Telugu te', value: 'te' },
-  { label: 'Thai th', value: 'th' },
-  { label: 'Turkish tr', value: 'tr' },
-  { label: 'Ukrainian uk', value: 'uk' },
-  { label: 'Vietnamese vi', value: 'vi' },
-];
 
-export const DeepLSourceLangOptions = [
-  { label: 'Arabic [1]', value: 'AR' },
-  { label: 'Bulgarian', value: 'BG' },
-  { label: 'Czech', value: 'CS' },
-  { label: 'Danish', value: 'DA' },
-  { label: 'German', value: 'DE' },
-  { label: 'Greek', value: 'EL' },
-  { label: 'English', value: 'EN' },
-  { label: 'Spanish', value: 'ES' },
-  { label: 'Estonian', value: 'ET' },
-  { label: 'Finnish', value: 'FI' },
-  { label: 'French', value: 'FR' },
-  { label: 'Hungarian', value: 'HU' },
-  { label: 'Indonesian', value: 'ID' },
-  { label: 'Italian', value: 'IT' },
-  { label: 'Japanese', value: 'JA' },
-  { label: 'Korean', value: 'KO' },
-  { label: 'Lithuanian', value: 'LT' },
-  { label: 'Latvian', value: 'LV' },
-  { label: 'Norwegian Bokmål', value: 'NB' },
-  { label: 'Dutch', value: 'NL' },
-  { label: 'Polish', value: 'PL' },
-  { label: 'Portuguese (all Portuguese varieties mixed)', value: 'PT' },
-  { label: 'Romanian', value: 'RO' },
-  { label: 'Russian', value: 'RU' },
-  { label: 'Slovak', value: 'SK' },
-  { label: 'Slovenian', value: 'SL' },
-  { label: 'Swedish', value: 'SV' },
-  { label: 'Turkish', value: 'TR' },
-  { label: 'Ukrainian', value: 'UK' },
-  { label: 'Chinese', value: 'ZH' },
-];
-export const DeepLTargetLangOptions = [
-  { label: 'Arabic [1]', value: 'AR' },
-  { label: 'Bulgarian', value: 'BG' },
-  { label: 'Czech', value: 'CS' },
-  { label: 'Danish', value: 'DA' },
-  { label: 'German', value: 'DE' },
-  { label: 'Greek', value: 'EL' },
-  { label: 'English (British)', value: 'EN-GB' },
-  { label: 'English (American)', value: 'EN-US' },
-  { label: 'Spanish', value: 'ES' },
-  { label: 'Estonian', value: 'ET' },
-  { label: 'Finnish', value: 'FI' },
-  { label: 'French', value: 'FR' },
-  { label: 'Hungarian', value: 'HU' },
-  { label: 'Indonesian', value: 'ID' },
-  { label: 'Italian', value: 'IT' },
-  { label: 'Japanese', value: 'JA' },
-  { label: 'Korean', value: 'KO' },
-  { label: 'Lithuanian', value: 'LT' },
-  { label: 'Latvian', value: 'LV' },
-  { label: 'Norwegian Bokmål', value: 'NB' },
-  { label: 'Dutch', value: 'NL' },
-  { label: 'Polish', value: 'PL' },
-  { label: 'Portuguese (Brazilian)', value: 'PT-BR' },
-  {
-    label:
-      'Portuguese (all Portuguese varieties excluding Brazilian Portuguese)',
-    value: 'PT-PT',
-  },
-  { label: 'Romanian', value: 'RO' },
-  { label: 'Russian', value: 'RU' },
-  { label: 'Slovak', value: 'SK' },
-  { label: 'Slovenian', value: 'SL' },
-  { label: 'Swedish', value: 'SV' },
-  { label: 'Turkish', value: 'TR' },
-  { label: 'Ukrainian', value: 'UK' },
-  { label: 'Chinese (simplified)', value: 'ZH' },
-];
 
-export const BaiduFanyiDomainOptions = [
-  'it',
-  'finance',
-  'machinery',
-  'senimed',
-  'novel',
-  'academic',
-  'aerospace',
-  'wiki',
-  'news',
-  'law',
-  'contract',
-];
 
-export const BaiduFanyiSourceLangOptions = [
-  'auto',
-  'zh',
-  'en',
-  'yue',
-  'wyw',
-  'jp',
-  'kor',
-  'fra',
-  'spa',
-  'th',
-  'ara',
-  'ru',
-  'pt',
-  'de',
-  'it',
-  'el',
-  'nl',
-  'pl',
-  'bul',
-  'est',
-  'dan',
-  'fin',
-  'cs',
-  'rom',
-  'slo',
-  'swe',
-  'hu',
-  'cht',
-  'vie',
-];
 
-export const QWeatherLangOptions = [
-  'zh',
-  'zh-hant',
-  'en',
-  'de',
-  'es',
-  'fr',
-  'it',
-  'ja',
-  'ko',
-  'ru',
-  'hi',
-  'th',
-  'ar',
-  'pt',
-  'bn',
-  'ms',
-  'nl',
-  'el',
-  'la',
-  'sv',
-  'id',
-  'pl',
-  'tr',
-  'cs',
-  'et',
-  'vi',
-  'fil',
-  'fi',
-  'he',
-  'is',
-  'nb',
-];
 
-export const QWeatherTypeOptions = ['weather', 'indices', 'airquality'];
 
-export const QWeatherUserTypeOptions = ['free', 'paid'];
-
-export const QWeatherTimePeriodOptions = [
-  'now',
-  '3d',
-  '7d',
-  '10d',
-  '15d',
-  '30d',
-];
 
 export const ExeSQLOptions = ['mysql', 'postgresql', 'mariadb', 'mssql'].map(
   (x) => ({
