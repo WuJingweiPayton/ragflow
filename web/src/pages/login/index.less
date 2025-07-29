@@ -83,10 +83,49 @@
       left: 0;
       right: 0;
       background-color: rgba(24, 73, 169, 0.6);
-      background-image: url('@/assets/svg/login-background.svg');
+      /* 你可以选择以下任一方式： */
+        /* 方式1：使用 SVG 图片 */
+      // background-image: url('@/assets/svg/login-background.svg');
+      /* 方式2：使用 JPG 图片 */
+         background-image: url('@/assets/images/login-background.jpeg'); 
+        /* 方式3：使用 PNG 图片 */
+        /* background-image: url('@/assets/images/login-background.png'); */
+        /* 方式4：使用在线图片 */
+        /* background-image: url('https://example.com/your-background.jpg'); */
       background-size: cover;
+      /* 其他背景样式选项： */
+        /* background-size: contain; */
+        /* 完整显示图片 */
+        /* background-size: 100% 100%; */
+        /* 拉伸填充 */
+        /* background-repeat: no-repeat; */
+        /* 不重复 */
+        /* background-position: center; */
+        /* 居中显示 */
+        /* background-position: top center; */
+        /* 顶部居中 */
+        /* background-position: bottom center; */
+        /* 底部居中 */
       background-blend-mode: multiply;
+      /* 其他混合模式选项： */
+        /* background-blend-mode: overlay; */
+        /* 叠加效果 */
+        /* background-blend-mode: soft-light; */
+        /* 柔光效果 */
+        /* background-blend-mode: screen; */
+        /* 滤色效果 */
       filter: blur(3px);
+      /* 其他滤镜效果： */
+        /* filter: blur(0px); */
+        /* 无模糊 */
+        /* filter: blur(5px); */
+        /* 更模糊 */
+        /* filter: brightness(1.2); */
+        /* 增加亮度 */
+        /* filter: contrast(1.2); */
+        /* 增加对比度 */
+        /* filter: saturate(1.5); */
+        /* 增加饱和度 */
       background-position: center;
       z-index: -1;
     }
