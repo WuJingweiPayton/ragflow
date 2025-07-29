@@ -10,22 +10,11 @@ team_shu_lian   git@git.shu-lian.com:datainterconnect/ragflow (push)
 
 
 git add .
-git commit  -m "增加11个行业场景Agent模板（图片+名称+简介）
-港口航运预报
-远洋渔情预报
-海上风能评估
-滨海旅游舒适度预报
-蓝碳指数评估
-共富农仓
-数卫粮安
-大黄鱼养殖
-番茄🍅生长模型
-美妆运营
 
-通用场景Agent模板
-通用场景智能体
 
-Agent模板列表页面的白色背景板没有随着模板数量增长而增长，导致当模板数量较多时，背景板高度固定，影响用户体验。" --no-verify
+
+
+git commit  -m "番茄emoji表情删除" --no-verify
 
 
 
