@@ -12,7 +12,8 @@ const LoginRightPanel = () => {
   const { t } = useTranslate('login');
   return (
     <section className={styles.rightPanel}>
-      <SvgIcon name="login-star" width={80}></SvgIcon>
+      {/* 隐藏五角星图标 */}
+      {/* <SvgIcon name="login-star" width={80}></SvgIcon> */}
       <Flex vertical gap={40}>
         <Title
           level={1}
@@ -23,7 +24,8 @@ const LoginRightPanel = () => {
         <Text className={classNames(styles.pink, styles.loginDescription)}>
           {t('description')}
         </Text>
-        <Flex align="center" gap={16}>
+        {/* 隐藏五角星评分相关元素 */}
+        {/* <Flex align="center" gap={16}>
           <Avatars></Avatars>
           <Flex vertical>
             <Space>
@@ -38,7 +40,7 @@ const LoginRightPanel = () => {
               {t('review')}
             </span>
           </Flex>
-        </Flex>
+        </Flex> */}
       </Flex>
     </section>
   );

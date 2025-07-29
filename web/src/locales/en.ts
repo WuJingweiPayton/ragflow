@@ -53,9 +53,9 @@ export default {
       nicknamePlaceholder: 'Please input nickname',
       register: 'Create an account',
       continue: 'Continue',
-      title: 'Start building your smart assistants.',
+      title: 'Start building your digital and computational collaborative application.',
       description:
-        'Sign up for free to explore top RAG technology. Create knowledge bases and AIs to empower your business.',
+        'The "Three Data and One Chain+" Data Space Platform\'s Data-Computing Synergy Subsystem in China\'s Data Valley, based on a "Lego-style" processing and production system from data resources to data products, utilizes resource libraries such as model libraries, plugin libraries, and tool libraries to construct a multi-party collaborative value co-creation pipeline from "data" to "AI." It achieves seamless integration with other systems like access connectors, trusted data space nodes, and intelligent computing centers, assisting users in realizing data-computing synergy applications in scenarios such as marine, agriculture, and consumer fields.',
       review: 'from 500+ reviews',
     },
     header: {
