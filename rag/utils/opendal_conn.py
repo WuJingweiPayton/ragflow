@@ -24,7 +24,7 @@ def get_opendal_config():
         opendal_config = get_base_config('opendal', {})
         if opendal_config.get("scheme") == 'mysql':
             mysql_config = get_base_config('mysql', {})
-            max_packet = mysql_config.get("max_allowed_packet", 134217728)
+            max_packet = mysql_config.get("max_allowed_packet", 268435456)
             kwargs = {
                 "scheme": "mysql",
                 "host": mysql_config.get("host", "127.0.0.1"),

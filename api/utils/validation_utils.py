@@ -378,7 +378,7 @@ class ParserConfig(Base):
 
 class CreateDatasetReq(Base):
     name: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=DATASET_NAME_LIMIT), Field(...)]
-    avatar: str | None = Field(default=None, max_length=65535)
+    avatar: str | None = Field(default=None, max_length=1048576)
     description: str | None = Field(default=None, max_length=65535)
     embedding_model: str | None = Field(default=None, max_length=255, serialization_alias="embd_id")
     permission: PermissionEnum = Field(default=PermissionEnum.me, min_length=1, max_length=16)
