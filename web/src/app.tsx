@@ -33,10 +33,6 @@ dayjs.extend(weekYear);
 const AntLanguageMap = {
   en: enUS,
   zh: zhCN,
-  'zh-TRADITIONAL': zh_HK,
-  vi: vi_VN,
-  'pt-BR': pt_BR,
-  de: deDE,
 };
 
 if (process.env.NODE_ENV === 'development') {

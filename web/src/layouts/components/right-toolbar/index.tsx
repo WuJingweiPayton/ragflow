@@ -73,13 +73,10 @@ const RightToolBar = () => {
       <Space wrap size={16}>
         <Dropdown menu={{ items, onClick: handleItemClick }} placement="bottom">
           <Space className={styled.language}>
-            <b>{t(camelCase(language))}</b>
+            <b>{LanguageMap[language as keyof typeof LanguageMap] || language}</b>
             <DownOutlined />
           </Space>
         </Dropdown>
-        <Circle>
-          <GithubOutlined onClick={handleGithubCLick} />
-        </Circle>
         <Circle>
           <CircleHelp className="size-4" onClick={handleDocHelpCLick} />
         </Circle>

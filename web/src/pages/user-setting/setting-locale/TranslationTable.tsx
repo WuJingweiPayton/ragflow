@@ -57,7 +57,10 @@ const TranslationTable: React.FC<TranslationTableProps> = ({
   return (
     <Table
       columns={columns}
-      dataSource={data}
+      dataSource={data.filter((row) => {
+        // Filter out rows where all languages have empty values
+        return languages.some((lang) => row[lang] && row[lang].trim() !== '');
+      })}
       rowKey="key"
       pagination={{ pageSize: 10 }}
       scroll={{ x: true }}

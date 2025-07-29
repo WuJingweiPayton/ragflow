@@ -7,13 +7,7 @@ function UserSettingLocale() {
       data={translationTable}
       languages={[
         'English',
-        'Vietnamese',
-        'Spanish',
-        'zh',
-        'zh-TRADITIONAL',
-        'ja',
-        'pt-br',
-        'German',
+        '简体中文',
       ]}
     />
   );

@@ -6,16 +6,17 @@ import { get, isPlainObject, lowerFirst } from 'lodash';
 import { Play } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { BeginId, Operator, operatorMap } from '../constant';
-import AkShareForm from '../form/akshare-form';
 import AnswerForm from '../form/answer-form';
 import ArXivForm from '../form/arxiv-form';
+import ComputingNodeForm from '../form/computing-node-form';
+import DataProductForm from '../form/data-product-form';
+import DataResourceForm from '../form/data-resource-form';
 import BaiduFanyiForm from '../form/baidu-fanyi-form';
 import BaiduForm from '../form/baidu-form';
 import BeginForm from '../form/begin-form';
 import BingForm from '../form/bing-form';
 import CategorizeForm from '../form/categorize-form';
 import CodeForm from '../form/code-form';
-import CrawlerForm from '../form/crawler-form';
 import DeepLForm from '../form/deepl-form';
 import DuckDuckGoForm from '../form/duckduckgo-form';
 import EmailForm from '../form/email-form';
@@ -24,8 +25,6 @@ import GenerateForm from '../form/generate-form';
 import GithubForm from '../form/github-form';
 import GoogleForm from '../form/google-form';
 import GoogleScholarForm from '../form/google-scholar-form';
-import InvokeForm from '../form/invoke-form';
-import Jin10Form from '../form/jin10-form';
 import KeywordExtractForm from '../form/keyword-extract-form';
 import MessageForm from '../form/message-form';
 import PubMedForm from '../form/pubmed-form';
@@ -35,10 +34,7 @@ import RetrievalForm from '../form/retrieval-form';
 import RewriteQuestionForm from '../form/rewrite-question-form';
 import SwitchForm from '../form/switch-form';
 import TemplateForm from '../form/template-form';
-import TuShareForm from '../form/tushare-form';
-import WenCaiForm from '../form/wencai-form';
 import WikipediaForm from '../form/wikipedia-form';
-import YahooFinanceForm from '../form/yahoo-finance-form';
 import { useHandleFormValuesChange, useHandleNodeNameChange } from '../hooks';
 import OperatorIcon from '../operator-icon';
 import {
@@ -63,6 +59,9 @@ interface IProps {
 
 const FormMap = {
   [Operator.Begin]: BeginForm,
+  [Operator.DataProduct]: DataProductForm,
+  [Operator.DataResource]: DataResourceForm,
+  [Operator.ComputingNode]: ComputingNodeForm,
   [Operator.Retrieval]: RetrievalForm,
   [Operator.Generate]: GenerateForm,
   [Operator.Answer]: AnswerForm,
@@ -85,13 +84,6 @@ const FormMap = {
   [Operator.QWeather]: QWeatherForm,
   [Operator.ExeSQL]: ExeSQLForm,
   [Operator.Switch]: SwitchForm,
-  [Operator.WenCai]: WenCaiForm,
-  [Operator.AkShare]: AkShareForm,
-  [Operator.YahooFinance]: YahooFinanceForm,
-  [Operator.Jin10]: Jin10Form,
-  [Operator.TuShare]: TuShareForm,
-  [Operator.Crawler]: CrawlerForm,
-  [Operator.Invoke]: InvokeForm,
   [Operator.Concentrator]: () => <></>,
   [Operator.Note]: () => <></>,
   [Operator.Template]: TemplateForm,

@@ -7,6 +7,7 @@ import {
   useRegister,
 } from '@/hooks/login-hooks';
 import { useSystemConfig } from '@/hooks/system-hooks';
+import { useFetchAppConf } from '@/hooks/logic-hooks';
 import { rsaPsw } from '@/utils';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useEffect, useState } from 'react';
@@ -25,6 +26,7 @@ const Login = () => {
   const { login: loginWithChannel, loading: loginWithChannelLoading } =
     useLoginWithChannel();
   const { t } = useTranslation('translation', { keyPrefix: 'login' });
+  const appConf = useFetchAppConf();
   const loading =
     signLoading ||
     registerLoading ||
@@ -93,6 +95,12 @@ const Login = () => {
     <div className={styles.loginPage}>
       <div className={styles.loginLeft}>
         <div className={styles.leftContainer}>
+          {/* Logo and App Name */}
+          <div className={styles.logoSection}>
+            <img src="/logo.png" alt="logo" className={styles.logo} />
+            <h1 className={styles.appName}>{appConf.appName}</h1>
+          </div>
+          
           <div className={styles.loginTitle}>
             <div>{title === 'login' ? t('login') : t('register')}</div>
             <span>

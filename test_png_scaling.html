@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PNG缩放测试</title>
+    <style>
+        .test-container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .logo-test {
+            max-width: 36px;
+            vertical-align: middle;
+        }
+        .logo-large {
+            max-width: 100px;
+            vertical-align: middle;
+        }
+        .logo-small {
+            max-width: 20px;
+            vertical-align: middle;
+        }
+        .comparison {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>PNG vs SVG 缩放测试</h2>
+    
+    <div class="test-container">
+        <h3>当前SVG Logo (36px)</h3>
+        <img src="/logo.svg" alt="SVG Logo" class="logo-test" />
+        
+        <h3>如果使用PNG Logo (36px)</h3>
+        <p>注意：这里需要你提供PNG文件进行测试</p>
+        <!-- <img src="/logo.png" alt="PNG Logo" class="logo-test" /> -->
+    </div>
+    
+    <div class="test-container">
+        <h3>不同尺寸对比</h3>
+        <div class="comparison">
+            <div>
+                <h4>小尺寸 (20px)</h4>
+                <img src="/logo.svg" alt="SVG Small" class="logo-small" />
+            </div>
+            <div>
+                <h4>标准尺寸 (36px)</h4>
+                <img src="/logo.svg" alt="SVG Normal" class="logo-test" />
+            </div>
+            <div>
+                <h4>大尺寸 (100px)</h4>
+                <img src="/logo.svg" alt="SVG Large" class="logo-large" />
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h3>使用PNG的建议</h3>
+        <ol>
+            <li><strong>准备PNG文件</strong>：将你的logo保存为PNG格式</li>
+            <li><strong>推荐尺寸</strong>：64×68 或 128×136（2x或4x，确保清晰度）</li>
+            <li><strong>透明度</strong>：使用PNG的透明背景</li>
+            <li><strong>文件大小</strong>：控制在50KB以内</li>
+            <li><strong>替换文件</strong>：将PNG文件放在 <code>web/public/logo.png</code></li>
+            <li><strong>修改代码</strong>：将 <code>src="/logo.svg"</code> 改为 <code>src="/logo.png"</code></li>
+        </ol>
+    </div>
+</body>
+</html> 

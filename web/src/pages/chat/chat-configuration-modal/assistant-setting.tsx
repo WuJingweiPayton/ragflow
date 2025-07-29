@@ -101,7 +101,7 @@ const AssistantSetting = ({
       >
         <Select
           options={[
-            { value: 'Chinese', label: t('chinese', { keyPrefix: 'common' }) },
+            { value: '简体中文', label: t('chinese', { keyPrefix: 'common' }) },
             { value: 'English', label: t('english', { keyPrefix: 'common' }) },
           ]}
         />

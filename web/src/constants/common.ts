@@ -41,62 +41,27 @@ export const fileIconMap = {
 
 export const LanguageList = [
   'English',
-  'Chinese',
-  'Traditional Chinese',
-  'Indonesia',
-  'Spanish',
-  'Vietnamese',
-  'Japanese',
-  'Portuguese BR',
-  'German',
+  '简体中文',
 ];
 
 export const LanguageMap = {
   English: 'English',
-  Chinese: '简体中文',
-  'Traditional Chinese': '繁體中文',
-  Indonesia: 'Indonesia',
-  Spanish: 'Español',
-  Vietnamese: 'Tiếng việt',
-  Japanese: '日本語',
-  'Portuguese BR': 'Português BR',
-  German: 'German',
+  '简体中文': '简体中文',
 };
 
 export enum LanguageAbbreviation {
   En = 'en',
   Zh = 'zh',
-  ZhTraditional = 'zh-TRADITIONAL',
-  Id = 'id',
-  Ja = 'ja',
-  Es = 'es',
-  Vi = 'vi',
-  PtBr = 'pt-BR',
-  De = 'de',
 }
 
 export const LanguageAbbreviationMap = {
   [LanguageAbbreviation.En]: 'English',
   [LanguageAbbreviation.Zh]: '简体中文',
-  [LanguageAbbreviation.ZhTraditional]: '繁體中文',
-  [LanguageAbbreviation.Id]: 'Indonesia',
-  [LanguageAbbreviation.Es]: 'Español',
-  [LanguageAbbreviation.Vi]: 'Tiếng việt',
-  [LanguageAbbreviation.Ja]: '日本語',
-  [LanguageAbbreviation.PtBr]: 'Português BR',
-  [LanguageAbbreviation.De]: 'Deutsch',
 };
 
 export const LanguageTranslationMap = {
   English: 'en',
-  Chinese: 'zh',
-  'Traditional Chinese': 'zh-TRADITIONAL',
-  Indonesia: 'id',
-  Spanish: 'es',
-  Vietnamese: 'vi',
-  Japanese: 'ja',
-  'Portuguese BR': 'pt-br',
-  German: 'de',
+  '简体中文': 'zh',
 };
 
 export enum FileMimeType {
