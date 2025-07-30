@@ -14,7 +14,10 @@ git add .
 
 
 
-git commit  -m "番茄emoji表情删除" --no-verify
+git commit  --no-verify -m "修改了全局样式 (web/src/global.less)
+主要改进：
+移除了 html 元素上的 overflow: hidden 设置
+这允许页面正常滚动，特别是在登录页面" 
 
 
 
