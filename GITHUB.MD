@@ -8,16 +8,24 @@ team_shu_lian   git@git.shu-lian.com:datainterconnect/ragflow (push)
 
 
 
+gh repo create ragflow --public
+# 添加GitHub远程仓库
+git remote add github ssh://git@github.com/WuJingweiPayton/ragflow.git 
+
+
+git checkout -b main
+
+git push github main
+git push github dev
+
+git remote -v
 
 git add .
 
 
 
 
-git commit  --no-verify -m "修改了全局样式 (web/src/global.less)
-主要改进：
-移除了 html 元素上的 overflow: hidden 设置
-这允许页面正常滚动，特别是在登录页面" 
+git commit  --no-verify -m "GPT-5修改之前的基准提交" 
 
 
 
@@ -29,6 +37,8 @@ git checkout -b dev
 
 # 推送新分支到远程（首次推送需用 -u 建立跟踪）
 git push -u team_shu_lian dev
+
+git push -u gitlab dev
 
 # 后续推送简化
 git push
