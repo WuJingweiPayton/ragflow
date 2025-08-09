@@ -31,8 +31,6 @@ from api.db.services.knowledgebase_service import KnowledgebaseService
 from api.db.services.llm_service import LLMBundle, TenantService
 from api.db.services.user_service import UserTenantService
 from api.utils.api_utils import get_data_error_result, get_json_result, server_error_response, validate_request
-from api.db.services.mcp_server_service import MCPServerService
-from rag.utils.mcp_tool_call_conn import MCPToolCallSession, close_multiple_mcp_toolcall_sessions
 from graphrag.general.mind_map_extractor import MindMapExtractor
 from rag.app.tag import label_question
 
@@ -231,37 +229,9 @@ def completion():
         def stream():
             nonlocal dia, msg, req, conv
             try:
-                tool_call_sessions = []
-                try:
-                    # Build MCP tool bindings if provided
-                    mcp_ids = req.get("mcp_ids", []) or []
-                    mcp_timeout = float(req.get("mcp_timeout", 10))
-                    tools = []
-                    toolcall_session = None
-                    if mcp_ids:
-                        # For now, support the first MCP server for binding (can be extended to multiple)
-                        for mcp_id in mcp_ids:
-                            e, mcp_server = MCPServerService.get_by_id(mcp_id)
-                            if not e or mcp_server.tenant_id != current_user.id:
-                                continue
-                            session = MCPToolCallSession(mcp_server, mcp_server.variables)
-                            tool_call_sessions.append(session)
-                            try:
-                                mcp_tools = session.get_tools(mcp_timeout)
-                            except Exception:
-                                mcp_tools = []
-                            # convert pydantic models to dict
-                            tools = [t.model_dump() for t in mcp_tools]
-                            toolcall_session = session
-                            break
-
-                    for ans in chat(dia, msg, True, toolcall_session=toolcall_session, tools=tools, **req):
-                        ans = structure_answer(conv, ans, message_id, conv.id)
-                        yield "data:" + json.dumps({"code": 0, "message": "", "data": ans}, ensure_ascii=False) + "\n\n"
-                finally:
-                    # ensure sessions closed
-                    if tool_call_sessions:
-                        close_multiple_mcp_toolcall_sessions(tool_call_sessions)
+                for ans in chat(dia, msg, True, **req):
+                    ans = structure_answer(conv, ans, message_id, conv.id)
+                    yield "data:" + json.dumps({"code": 0, "message": "", "data": ans}, ensure_ascii=False) + "\n\n"
                 ConversationService.update_by_id(conv.id, conv.to_dict())
             except Exception as e:
                 traceback.print_exc()
@@ -278,34 +248,10 @@ def completion():
 
         else:
             answer = None
-            tool_call_sessions = []
-            try:
-                mcp_ids = req.get("mcp_ids", []) or []
-                mcp_timeout = float(req.get("mcp_timeout", 10))
-                tools = []
-                toolcall_session = None
-                if mcp_ids:
-                    for mcp_id in mcp_ids:
-                        e, mcp_server = MCPServerService.get_by_id(mcp_id)
-                        if not e or mcp_server.tenant_id != current_user.id:
-                            continue
-                        session = MCPToolCallSession(mcp_server, mcp_server.variables)
-                        tool_call_sessions.append(session)
-                        try:
-                            mcp_tools = session.get_tools(mcp_timeout)
-                        except Exception:
-                            mcp_tools = []
-                        tools = [t.model_dump() for t in mcp_tools]
-                        toolcall_session = session
-                        break
-
-                for ans in chat(dia, msg, toolcall_session=toolcall_session, tools=tools, **req):
-                    answer = structure_answer(conv, ans, message_id, conv.id)
-                    ConversationService.update_by_id(conv.id, conv.to_dict())
-                    break
-            finally:
-                if tool_call_sessions:
-                    close_multiple_mcp_toolcall_sessions(tool_call_sessions)
+            for ans in chat(dia, msg, **req):
+                answer = structure_answer(conv, ans, message_id, conv.id)
+                ConversationService.update_by_id(conv.id, conv.to_dict())
+                break
             return get_json_result(data=answer)
     except Exception as e:
         return server_error_response(e)
