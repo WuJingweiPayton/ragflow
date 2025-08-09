@@ -26,7 +26,7 @@ git add .
 
 
 git commit  --no-verify -m "GPT-5修改之前的基准提交" 
-
+git commit  --no-verify -m "请你在/chat里面补齐LLM调用MCP的能力，前后端代码改造都要有。首先你要分析现有代码，然后罗列出现有代码缺陷，列出修改步骤，然后按步骤修改现有代码。请开始。" 
 
 
 

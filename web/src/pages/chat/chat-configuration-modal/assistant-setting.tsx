@@ -6,6 +6,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Form, Input, message, Select, Switch, Upload } from 'antd';
 import classNames from 'classnames';
 import { useCallback } from 'react';
+import { useListMcpServer } from '@/hooks/use-mcp-request';
 import { ISegmentedContentProps } from '../interface';
 
 import styles from './index.less';
@@ -19,6 +20,7 @@ const AssistantSetting = ({
 }: ISegmentedContentProps) => {
   const { t } = useTranslate('chat');
   const { data } = useFetchTenantInfo(true);
+  const { data: mcpList } = useListMcpServer();
 
   const handleChange = useCallback(() => {
     const kbIds = form.getFieldValue('kb_ids');
@@ -120,6 +122,29 @@ const AssistantSetting = ({
         initialValue={t('setAnOpenerInitial')}
       >
         <Input.TextArea autoSize={{ minRows: 5 }} />
+      </Form.Item>
+      {/* MCP selection for this dialog */}
+      <Form.Item
+        name={['prompt_config', 'mcp_ids']}
+        label={'MCP Servers'}
+        tooltip={'Select MCP servers to enable tool calls in this chat'}
+      >
+        <Select
+          mode="multiple"
+          allowClear
+          placeholder={t('common.selectPlaceholder')}
+          options={(mcpList?.mcp_servers ?? []).map((x: any) => ({
+            label: x.name,
+            value: x.id,
+          }))}
+        />
+      </Form.Item>
+      <Form.Item
+        name={['prompt_config', 'mcp_timeout']}
+        label={'MCP Timeout (s)'}
+        tooltip={'Timeout in seconds for MCP tool listing and calls'}
+      >
+        <Input type="number" min={1} placeholder="10" />
       </Form.Item>
       <Form.Item
         label={t('quote')}

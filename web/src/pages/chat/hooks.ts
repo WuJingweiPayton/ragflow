@@ -23,6 +23,7 @@ import {
   useSelectDerivedMessages,
   useSendMessageWithSse,
 } from '@/hooks/logic-hooks';
+import { useFetchNextDialog } from '@/hooks/chat-hooks';
 import { IConversation, IDialog, Message } from '@/interfaces/database/chat';
 import { getFileExtension } from '@/utils';
 import api from '@/utils/api';
@@ -366,6 +367,7 @@ export const useSendNextMessage = (controller: AbortController) => {
   const { setConversation } = useSetConversation();
   const { conversationId, isNew } = useGetChatSearchParams();
   const { handleInputChange, value, setValue } = useHandleMessageInputChange();
+  const { data: currentDialog } = useFetchNextDialog();
 
   const { send, answer, done } = useSendMessageWithSse(
     api.completeConversation,
@@ -401,6 +403,8 @@ export const useSendNextMessage = (controller: AbortController) => {
         {
           conversation_id: currentConversationId ?? conversationId,
           messages: [...(messages ?? derivedMessages ?? []), message],
+          mcp_ids: currentDialog?.prompt_config?.mcp_ids ?? [],
+          mcp_timeout: currentDialog?.prompt_config?.mcp_timeout ?? undefined,
         },
         controller,
       );
